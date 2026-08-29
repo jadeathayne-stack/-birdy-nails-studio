@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Birdy Nails Studio</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+    :root {
+      --cream: #f5eaea;
+      --pink: #ead7d9;
+      --rose: #8d4f55;
+      --brown: #5d4038;
+      --gold: #b7955b;
+      --white: #fffafa;
+      --shadow: 0 10px 30px rgba(93, 64, 56, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--cream);
+      color: var(--brown);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .app {
+      max-width: 520px;
+      margin: auto;
+      min-height: 100vh;
+      padding: 24px 18px 40px;
+    }
+
+    .logo {
+      text-align: center;
+      padding: 12px 0 28px;
+    }
+
+    .logo-small {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+
+    .logo h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      line-height: .9;
+      color: var(--rose);
+      font-weight: 600;
+    }
+
+    .logo-script {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-style: italic;
+      color: var(--rose);
+      margin-top: 4px;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .welcome h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      margin-bottom: 7px;
+    }
+
+    .welcome p {
+      font-size: 13px;
+      line-height: 1.6;
+      opacity: .8;
+    }
+
+    .cards {
+      display: grid;
+      gap: 14px;
+    }
+
+    .category-card {
+      border: 0;
+      width: 100%;
+      padding: 24px 22px;
+      border-radius: 24px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      color: var(--brown);
+      text-align: left;
+      cursor: pointer;
+      transition: transform .2s;
+    }
+
+    .category-card:active {
+      transform: scale(.98);
+    }
+
+    .category-icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .category-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 27px;
+      color: var(--rose);
+      margin-bottom: 5px;
+    }
+
+    .category-card p {
+      font-size: 12px;
+      opacity: .7;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      color: var(--rose);
+      margin: 10px 0 5px;
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      line-height: 1.6;
+      opacity: .75;
+      margin-bottom: 20px;
+    }
+
+    .back {
+      border: 0;
+      background: transparent;
+      color: var(--rose);
+      font-size: 13px;
+      padding: 5px 0 15px;
+      cursor: pointer;
+    }
+
+    .service {
+      width: 100%;
+      border: 1px solid rgba(141,79,85,.12);
+      background: var(--white);
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 12px;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(93,64,56,.06);
+      color: var(--brown);
+    }
+
+    .service-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .service h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--rose);
+    }
+
+    .service p {
+      font-size: 11px;
+      margin-top: 5px;
+      opacity: .65;
+    }
+
+    .price {
+      font-weight: 600;
+      color: var(--brown);
+      white-space: nowrap;
+    }
+
+    .option-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: var(--rose);
+      margin: 24px 0 12px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .option input {
+      accent-color: var(--rose);
+      width: 18px;
+      height: 18px;
+    }
+
+    .small-note {
+      font-size: 11px;
+      line-height: 1.6;
+      opacity: .65;
+      margin: 12px 2px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+
+    .choice {
+      border: 1px solid rgba(141,79,85,.15);
+      background: var(--white);
+      border-radius: 16px;
+      padding: 14px 10px;
+      color: var(--brown);
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .choice.selected {
+      background: var(--pink);
+      border-color: var(--rose);
+    }
+
+    .summary {
+      background: var(--white);
+      border-radius: 25px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin-top: 22px;
+    }
+
+    .summary h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 27px;
+      color: var(--rose);
+      margin-bottom: 16px;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(93,64,56,.08);
+      font-size: 12px;
+    }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 25px;
+      color: var(--rose);
+    }
+
+    .cta {
+      width: 100%;
+      border: 0;
+      border-radius: 18px;
+      padding: 17px;
+      margin-top: 14px;
+      background: var(--rose);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(141,79,85,.22);
+    }
+
+    .secondary {
+      background: transparent;
+      color: var(--rose);
+      border: 1px solid var(--rose);
+      box-shadow: none;
+    }
+
+    .quote-box {
+      background: var(--white);
+      border-radius: 25px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      margin-top: 20px;
+    }
+
+    .quote-box .icon {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .quote-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--rose);
+      font-size: 29px;
+      margin-bottom: 10px;
+    }
+
+    .quote-box p {
+      font-size: 12px;
+      line-height: 1.7;
+      opacity: .75;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 35px;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- ACCUEIL -->
+  <section id="home">
+
+    <div class="logo">
+      <div class="logo-small">BIRDY</div>
+      <h1>Nails Studio</h1>
+      <div class="logo-script">beauty & nails</div>
+    </div>
+
+    <div class="welcome">
+      <h2>Bienvenue ♡</h2>
+      <p>
+        Compose ton rendez-vous et découvre automatiquement
+        la prestation adaptée à ton projet.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <button class="category-card" onclick="showSection('nails')">
+        <div class="category-icon">💅🏻</div>
+        <h3>Onglerie</h3>
+        <p>Pose, semi-permanent, dépose & nail art</p>
+      </button>
+
+      <button class="category-card" onclick="showSection('lashes')">
+        <div class="category-icon">👁️</div>
+        <h3>Beauté du regard</h3>
+        <p>Réhaussement de cils & teinture</p>
+      </button>
+
+      <button class="category-card" onclick="openInstagram()">
+        <div class="category-icon">♡</div>
+        <h3>Instagram</h3>
+        <p>Découvrir les créations de Birdy Nails Studio</p>
+      </button>
+
+    </div>
+
+    <div class="footer">BIRDY NAILS STUDIO</div>
+  </section>
+
+
+  <!-- ONGLES -->
+  <section id="nails" class="hidden">
+
+    <button class="back" onclick="showSection('home')">← Retour</button>
+
+    <h2 class="section-title">Onglerie</h2>
+    <p class="section-subtitle">
+      Choisis ta prestation puis personnalise ta pose.
+    </p>
+
+    <button class="service" onclick="chooseNails('pose')">
+      <div class="service-row">
+        <div>
+          <h3>Pose américaine</h3>
+          <p>Pose simple · 1h55</p>
+        </div>
+        <div class="price">40 €</div>
+      </div>
+    </button>
+
+    <button class="service" onclick="chooseNails('semi')">
+      <div class="service-row">
+        <div>
+          <h3>Semi-permanent</h3>
+          <p>Tarif actuel</p>
+        </div>
+        <div class="price">35 €</div>
+      </div>
+    </button>
+
+    <button class="service" onclick="chooseNails('remove')">
+      <div class="service-row">
+        <div>
+          <h3>Dépose seule</h3>
+          <p>Dépose · 1h</p>
+        </div>
+        <div class="price">10 €</div>
+      </div>
+    </button>
+
+  </section>
+
+
+  <!-- CONFIGURATEUR -->
+  <section id="customize" class="hidden">
+
+    <button class="back" onclick="showSection('nails')">← Retour</button>
+
+    <h2 class="section-title">Personnalise ta pose</h2>
+
+    <p class="section-subtitle">
+      Sélectionne ce que tu souhaites. Birdy déterminera
+      automatiquement le niveau de nail art adapté. ✨
+    </p>
+
+    <div id="removalOption"></div>
+
+    <h3 class="option-title">🎨 Ton Nail Art</h3>
+
+    <label class="option">
+      <input type="checkbox" value="french" onchange="calculate()">
+      French
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="outline" onchange="calculate()">
+      French outline / contour
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="baby" onchange="calculate()">
+      Baby-boomer
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="babycolor" onchange="calculate()">
+      Baby-color
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="aura" onchange="calculate()">
+      Aura
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="marble" onchange="calculate()">
+      Marbré
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="animal" onchange="calculate()">
+      Effet tortue / léopard / animal
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="dots" onchange="calculate()">
+      Pois
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="catEye" onchange="calculate()">
+      Cat eye simple
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="stars" onchange="calculate()">
+      Étoiles
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="heart" onchange="calculate()">
+      Cœurs
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="3dLine" onchange="calculate()">
+      Lignes 3D
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="3dFlower" onchange="calculate()">
+      Fleur 3D
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="catCombo" onchange="calculate()">
+      Cat eye + autre nail art
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="strass" onchange="calculate()">
+      Strass
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="chrome" onchange="calculate()">
+      Finition chrome / miroir
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="shell" onchange="calculate()">
+      Coquillage
+    </label>
+
+    <label class="option">
+      <input type="checkbox" value="relief" onchange="calculate()">
+      Décoration travaillée en relief
+    </label>
+
+    <h3 class="option-title">💅 Combien de doigts ?</h3>
+
+    <div class="choice-grid">
+      <button class="choice" onclick="setFingers(2, this)">
+        1 doigt<br>par main
+      </button>
+
+      <button class="choice" onclick="setFingers(4, this)">
+        2 doigts<br>par main
+      </button>
+
+      <button class="choice" onclick="setFingers(6, this)">
+        Plus de 2<br>par main
+      </button>
+
+      <button class="choice" onclick="setFingers(10, this)">
+        Les 10<br>ongles
+      </button>
+    </div>
+
+    <p class="small-note">
+      Les petites décorations simples sur 1 ou 2 doigts par main
+      restent incluses dans la pose simple.
+    </p>
+
+    <h3 class="option-title">✨ Niveau de détail</h3>
+
+    <div class="choice-grid">
+      <button class="choice detail" onclick="setDetail('simple', this)">
+        Simple
+      </button>
+
+      <button class="choice detail" onclick="setDetail('medium', this)">
+        Intermédiaire
+      </button>
+
+      <button class="choice detail" onclick="setDetail('complex', this)">
+        Très travaillé
+      </button>
+    </div>
+
+    <div id="result"></div>
+
+  </section>
+
+
+  <!-- CILS -->
+  <section id="lashes" class="hidden">
+
+    <button class="back" onclick="showSection('home')">← Retour</button>
+
+    <h2 class="section-title">Beauté du regard</h2>
+
+    <p class="section-subtitle">
+      Un regard naturellement sublimé.
+    </p>
+
+    <button class="service" onclick="chooseLashes(false)">
+      <div class="service-row">
+        <div>
+          <h3>Réhaussement de cils</h3>
+          <p>Avec ou sans teinture · 1h</p>
+        </div>
+        <div class="price">25 €</div>
+      </div>
+    </button>
+
+    <button class="service" onclick="chooseLashes(true)">
+      <div class="service-row">
+        <div>
+          <h3>Réhaussement + teinture</h3>
+          <p>Durée totale · 1h</p>
+        </div>
+        <div class="price">30 €</div>
+      </div>
+    </button>
+
+  </section>
+
+
+  <!-- RÉCAP -->
+  <section id="summaryPage" class="hidden">
+
+    <button class="back" onclick="showSection('customize')">← Modifier</button>
+
+    <h2 class="section-title">Ton rendez-vous</h2>
+
+    <div class="summary">
+
+      <h3>Votre sélection ♡</h3>
+
+      <div id="summaryContent"></div>
+
+      <div class="summary-total">
+        <span>Total</span>
+        <strong id="totalPrice"></strong>
+      </div>
+
+      <button class="cta" onclick="openBooking()">
+        ✨ Choisir mon créneau
+      </button>
+
+      <button class="cta secondary" onclick="openInstagram()">
+        💌 Continuer sur Instagram
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- DEVIS -->
+  <section id="quote" class="hidden">
+
+    <button class="back" onclick="showSection('customize')">← Modifier</button>
+
+    <div class="quote-box">
+
+      <div class="icon">👑</div>
+
+      <h3>Ton projet nécessite un devis</h3>
+
+      <p>
+        Cette création correspond à un <strong>Nail Art niveau 4</strong>.
+        <br><br>
+        Durée estimée : <strong>3h</strong>
+        <br>
+        Tarif : <strong>sur devis</strong>
+        <br><br>
+        Envoie-moi ton inspiration sur Instagram afin que
+        je puisse confirmer la faisabilité et le tarif.
+      </p>
+
+      <button class="cta" onclick="openInstagram()">
+        💌 Demander mon devis
+      </button>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<script>
+
+  /* =========================
+     RÉGLAGES BIRDY
+     ========================= */
+
+  const INSTAGRAM_URL =
+    "https://www.instagram.com/BirdyNailsStudio/";
+
+  /*
+    On ajoutera ici ton vrai lien de réservation
+    dès que tu me l'auras envoyé.
+  */
+  const BOOKING_URL = "";
+
+
+  /* =========================
+     VARIABLES
+     ========================= */
+
+  let selectedService = null;
+  let removal = false;
+  let fingers = 0;
+  let detail = null;
+
+
+  /* =========================
+     NAVIGATION
+     ========================= */
+
+  function showSection(id) {
+
+    document.querySelectorAll(".app > section")
+      .forEach(section => section.classList.add("hidden"));
+
+    document.getElementById(id).classList.remove("hidden");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+
+  /* =========================
+     ONGLES
+     ========================= */
+
+  function chooseNails(type) {
+
+    selectedService = type;
+
+    if (type === "remove") {
+      removal = false;
+      showSection("summaryPage");
+
+      document.getElementById("summaryContent").innerHTML = `
+        <div class="summary-line">
+          <span>Dépose seule</span>
+          <strong>10 €</strong>
+        </div>
+        <div class="summary-line">
+          <span>Durée</span>
+          <strong>1h</strong>
+        </div>
+      `;
+
+      document.getElementById("totalPrice").textContent = "10 €";
+      return;
+    }
+
+    if (type === "semi") {
+      removal = false;
+    }
+
+    if (type === "pose") {
+      const answer = confirm(
+        "As-tu une ancienne pose à déposer avant ta nouvelle pose ?"
+      );
+
+      removal = answer;
+    }
+
+    document
+      .querySelectorAll('#customize input[type="checkbox"]')
+      .forEach(input => input.checked = false);
+
+    fingers = 0;
+    detail = null;
+
+    document
+      .querySelectorAll(".choice")
+      .forEach(button => button.classList.remove("selected"));
+
+    showSection("customize");
+
+    document.getElementById("removalOption").innerHTML =
+      removal
+      ? `
+        <div class="summary">
+          <strong>🔄 Dépose + nouvelle pose</strong>
+          <p class="small-note">
+            La dépose avant une nouvelle pose est facturée
+            seulement +5 €.
+          </p>
+        </div>
+      `
+      : "";
+  }
+
+
+  /* =========================
+     DOIGTS
+     ========================= */
+
+  function setFingers(number, element) {
+
+    fingers = number;
+
+    document
+      .querySelectorAll(".choice")
+      .forEach(button => {
+        if (!button.classList.contains("detail")) {
+          button.classList.remove("selected");
+        }
+      });
+
+    element.classList.add("selected");
+
+    calculate();
+  }
+
+
+  /* =========================
+     DÉTAIL
+     ========================= */
+
+  function setDetail(value, element) {
+
+    detail = value;
+
+    document
+      .querySelectorAll(".detail")
+      .forEach(button => button.classList.remove("selected"));
+
+    element.classList.add("selected");
+
+    calculate();
+  }
+
+
+  /* =========================
+     CALCUL NAIL ART
+     ========================= */
+
+  function calculate() {
+
+    if (selectedService !== "pose") return;
+
+    const checked = [
+      ...document.querySelectorAll(
+        '#customize input[type="checkbox"]:checked'
+      )
+    ].map(input => input.value);
+
+    let level = 0;
+
+
+    /*
+      Niveau 4 :
+      création 3D très détaillée / combinaison
+      extrêmement complexe.
+    */
+
+    const has3D =
+      checked.includes("3dLine") ||
+      checked.includes("3dFlower");
+
+    const hasComplexRelief =
+      checked.includes("relief") &&
+      detail === "complex";
+
+    /*
+      Si l'utilisateur sélectionne une création 3D
+      ET indique qu'elle est très travaillée,
+      on la considère comme niveau 4.
+    */
+
+    if (hasComplexRelief ||
+        (has3D && detail === "complex")) {
+
+      showSection("quote");
+      return;
+    }
+
+
+    /*
+      Niveau 2 :
+      toute création 3D simple
+      ou cat eye + autre nail art.
+    */
+
+    if (has3D ||
+        checked.includes("catCombo")) {
+
+      level = 2;
+    }
+
+
+    /*
+      Niveau 3 :
+      accumulation importante de techniques,
+      décoration travaillée, coquillages,
+      ou beaucoup d'éléments combinés.
+    */
+
+    if (
+      checked.includes("shell") ||
+      checked.includes("relief") ||
+      checked.length >= 5 ||
+      (
+        has3D &&
+        checked.length >= 3
+      )
+    ) {
+      level = 3;
+    }
+
+
+    /*
+      Les petits nail arts simples sur
+      1 ou 2 doigts par main restent
+      inclus dans la pose simple.
+    */
+
+    const simpleElements = [
+      "french",
+      "outline",
+      "baby",
+      "babycolor",
+      "aura",
+      "marble",
+      "animal",
+      "dots",
+      "catEye",
+      "stars",
+      "heart"
+    ];
+
+    const onlySimple =
+      checked.length > 0 &&
+      checked.every(item =>
+        simpleElements.includes(item)
+      );
+
+    if (
+      onlySimple &&
+      fingers > 0 &&
+      fingers <= 4
+    ) {
+      level = 0;
+    }
+
+
+    /*
+      Plus de 2 doigts par main avec
+      un élément de niveau 1 :
+      Niveau 1.
+    */
+
+    if (
+      level === 0 &&
+      onlySimple &&
+      fingers >= 6
+    ) {
+      level = 1;
+    }
+
+
+    /*
+      Accumulation de plusieurs éléments
+      même simples.
+    */
+
+    if (
+      level === 0 &&
+      checked.length >= 2 &&
+      fingers >= 6
+    ) {
+      level = 1;
+    }
+
+
+    /*
+      Niveau de détail très travaillé :
+      peut faire monter le niveau.
+    */
+
+    if (
+      detail === "complex" &&
+      checked.length >= 3
+    ) {
+      level = Math.max(level, 3);
+    }
+
+
+    /*
+      Calcul du prix.
+    */
+
+    let nailArtPrice = 0;
+
+    if (level === 1) nailArtPrice = 10;
+    if (level === 2) nailArtPrice = 15;
+    if (level === 3) nailArtPrice = 20;
+
+
+    /*
+      Prix de base.
+    */
+
+    let basePrice = 40;
+
+    /*
+      Dépose + nouvelle pose = +5 €
+    */
+
+    let removalPrice = removal ? 5 : 0;
+
+    let total = basePrice + removalPrice + nailArtPrice;
+
+
+    /*
+      Durées.
+    */
+
+    let duration = "1h55";
+
+    if (level === 1) {
+      duration = removal ? "1h55" : "1h55";
+    }
+
+    if (level === 2) {
+      duration = removal ? "2h45" : "2h15";
+    }
+
+    if (level === 3) {
+      duration = removal ? "3h15" : "2h45";
+    }
+
+
+    /*
+      Texte du résultat.
+    */
+
+    let levelText = "";
+
+    if (level === 0) {
+      levelText = "Pose simple";
+    }
+
+    if (level === 1) {
+      levelText = "Nail Art niveau 1";
+    }
+
+    if (level === 2) {
+      levelText = "Nail Art niveau 2";
+    }
+
+    if (level === 3) {
+      levelText = "Nail Art niveau 3";
+    }
+
+
+    document.getElementById("result").innerHTML = `
+      <div class="summary">
+
+        <h3>Ta création ✨</h3>
+
+        <div class="summary-line">
+          <span>Prestation</span>
+          <strong>Pose américaine</strong>
+        </div>
+
+        ${
+          removal
+          ? `
+          <div class="summary-line">
+            <span>Dépose</span>
+            <strong>+5 €</strong>
+          </div>
+          `
+          : ""
+        }
+
+        <div class="summary-line">
+          <span>Style</span>
+          <strong>${levelText}</strong>
+        </div>
+
+        <div class="summary-line">
+          <span>Durée estimée</span>
+          <strong>${duration}</strong>
+        </div>
+
+        <div class="summary-total">
+          <span>Total</span>
+          <strong>${total} €</strong>
+        </div>
+
+        <button class="cta"
+          onclick="goToSummary(
+            '${levelText}',
+            ${total},
+            '${duration}'
+          )">
+          Continuer →
+        </button>
+
+      </div>
+    `;
+  }
+
+
+  /* =========================
+     RÉCAPITULATIF
+     ========================= */
+
+  function goToSummary(levelText, total, duration) {
+
+    const text = `
+      <div class="summary-line">
+        <span>Pose américaine</span>
+        <strong>40 €</strong>
+      </div>
+
+      ${
+        removal
+        ? `
+        <div class="summary-line">
+          <span>Dépose avant nouvelle pose</span>
+          <strong>+5 €</strong>
+        </div>
+        `
+        : ""
+      }
+
+      <div class="summary-line">
+        <span>${levelText}</span>
+        <strong>${
+          levelText === "Nail Art niveau 1" ? "+10 €" :
+          levelText === "Nail Art niveau 2" ? "+15 €" :
+          levelText === "Nail Art niveau 3" ? "+20 €" :
+          "Inclus"
+        }</strong>
+      </div>
+
+      <div class="summary-line">
+        <span>Durée</span>
+        <strong>${duration}</strong>
+      </div>
+    `;
+
+    document.getElementById("summaryContent").innerHTML = text;
+    document.getElementById("totalPrice").textContent = total + " €";
+
+    showSection("summaryPage");
+  }
+
+
+  /* =========================
+     CILS
+     ========================= */
+
+  function chooseLashes(tint) {
+
+    const price = tint ? 30 : 25;
+
+    document.getElementById("summaryContent").innerHTML = `
+      <div class="summary-line">
+        <span>Réhaussement de cils</span>
+        <strong>25 €</strong>
+      </div>
+
+      ${
+        tint
+        ? `
+        <div class="summary-line">
+          <span>Teinture</span>
+          <strong>+5 €</strong>
+        </div>
+        `
+        : ""
+      }
+
+      <div class="summary-line">
+        <span>Durée</span>
+        <strong>1h</strong>
+      </div>
+    `;
+
+    document.getElementById("totalPrice").textContent =
+      price + " €";
+
+    showSection("summaryPage");
+  }
+
+
+  /* =========================
+     INSTAGRAM
+     ========================= */
+
+  function openInstagram() {
+
+    window.open(
+      INSTAGRAM_URL,
+      "_blank"
+    );
+  }
+
+
+  /* =========================
+     SITE DE RÉSERVATION
+     ========================= */
+
+  function openBooking() {
+
+    if (!BOOKING_URL) {
+
+      alert(
+        "Ton site de réservation sera connecté ici 💗"
+      );
+
+      return;
+    }
+
+    window.open(
+      BOOKING_URL,
+      "_blank"
+    );
+  }
+
+</script>
+
+</body>
+</html>
