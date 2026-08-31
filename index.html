@@ -1447,91 +1447,80 @@ pose simple.
 
 
 
-<!-- ==============================
-     PHOTO INSPIRATION
-     ============================== -->
-
-<div id="birdyyPhotoSection" style="
-  margin: 18px 0;
-  padding: 20px;
-  border-radius: 22px;
-  background: var(--white);
-  box-shadow: var(--shadow);
-">
-
-  <h3 style="
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 25px;
-    color: var(--rose);
-    margin-bottom: 8px;
-  ">
-    📸 Ton inspiration
-  </h3>
-
-  <p style="
-    font-size: 12px;
-    line-height: 1.6;
-    opacity: 0.7;
-    margin-bottom: 15px;
-  ">
-    Tu as une photo d’une pose que tu aimerais reproduire ?
-    Ajoute-la ici pour nous montrer ton inspiration.
-  </p>
-
-  <label for="birdyyPhotoInput" class="cta" style="
-    display: block;
-    text-align: center;
-    cursor: pointer;
-  ">
-    📷 Ajouter une photo
-  </label>
-
-  <input
-    type="file"
-    id="birdyyPhotoInput"
-    accept="image/*"
-    style="display: none;"
-  >
-
-  <div
-    id="birdyyPhotoPreview"
-    class="hidden"
-    style="
-      margin-top: 15px;
-      position: relative;
-      text-align: center;
-    "
-  >
-    <img
-      id="birdyyPhotoImage"
-      src=""
-      alt="Photo d'inspiration"
-      style="
-        width: 100%;
-        max-height: 280px;
-        object-fit: cover;
-        border-radius: 18px;
-      "
-    >
-
-    <button
-      type="button"
-      onclick="removePhoto()"
-      style="
-        margin-top: 10px;
-        padding: 10px 16px;
-        border-radius: 14px;
-        border: 1px solid var(--rose);
-        background: transparent;
-        color: var(--rose);
-        cursor: pointer;
-      "
-    >
-      ✕ Supprimer la photo
-    </button>
+<!-- FORME DES ONGLES -->
+<div class="option-title">
+  <span>💅</span>
+  <div>
+    <h3>Choisis ta forme</h3>
+    <p>Quelle forme souhaites-tu pour ta pose ?</p>
   </div>
+</div>
+
+<div class="options-grid">
+
+  <button
+    type="button"
+    class="option-card"
+    onclick="selectShape(this, 'Amande')"
+  >
+    <span class="option-icon">♡</span>
+    <span class="option-name">Amande</span>
+  </button>
+
+  <button
+    type="button"
+    class="option-card"
+    onclick="selectShape(this, 'Carré')"
+  >
+    <span class="option-icon">□</span>
+    <span class="option-name">Carré</span>
+  </button>
+
+  <button
+    type="button"
+    class="option-card"
+    onclick="selectShape(this, 'Coffin')"
+  >
+    <span class="option-icon">⌒</span>
+    <span class="option-name">Coffin</span>
+  </button>
+
+  <button
+    type="button"
+    class="option-card"
+    onclick="selectShape(this, 'Stiletto')"
+  >
+    <span class="option-icon">♢</span>
+    <span class="option-name">Stiletto</span>
+  </button>
+
+  <button
+    type="button"
+    class="option-card"
+    onclick="selectShape(this, 'Je ne sais pas encore')"
+  >
+    <span class="option-icon">?</span>
+    <span class="option-name">Je ne sais pas encore</span>
+  </button>
 
 </div>
+
+<script>
+let selectedShape = "";
+
+function selectShape(button, shape) {
+
+  document
+    .querySelectorAll('.options-grid .option-card')
+    .forEach(function(card) {
+      card.classList.remove('selected');
+    });
+
+  button.classList.add('selected');
+
+  selectedShape = shape;
+}
+</script>
 
 
 <div id="result"></div>
