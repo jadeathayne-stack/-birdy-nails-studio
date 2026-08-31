@@ -1447,79 +1447,67 @@ pose simple.
 
 
 
-<!-- FORME DES ONGLES -->
-<div class="option-title">
-  <span>💅</span>
-  <div>
-    <h3>Choisis ta forme</h3>
-    <p>Quelle forme souhaites-tu pour ta pose ?</p>
-  </div>
-</div>
+<!-- ================================
+     FORME DES ONGLES
+================================ -->
 
-<div class="options-grid">
+<h3 class="option-title">
+  Choisis ta forme
+</h3>
+
+<p class="option-subtitle">
+  Quelle forme souhaites-tu pour ta pose ?
+</p>
+
+<div class="choice-grid">
 
   <button
     type="button"
-    class="option-card"
+    class="choice shape-choice"
     onclick="selectShape(this, 'Amande')"
   >
-    <span class="option-icon">♡</span>
-    <span class="option-name">Amande</span>
+    Amande
   </button>
 
   <button
     type="button"
-    class="option-card"
+    class="choice shape-choice"
     onclick="selectShape(this, 'Carré')"
   >
-    <span class="option-icon">□</span>
-    <span class="option-name">Carré</span>
+    Carré
   </button>
 
   <button
     type="button"
-    class="option-card"
+    class="choice shape-choice"
     onclick="selectShape(this, 'Coffin')"
   >
-    <span class="option-icon">⌒</span>
-    <span class="option-name">Coffin</span>
+    Coffin
   </button>
 
   <button
     type="button"
-    class="option-card"
+    class="choice shape-choice"
     onclick="selectShape(this, 'Stiletto')"
   >
-    <span class="option-icon">♢</span>
-    <span class="option-name">Stiletto</span>
-  </button>
-
-  <button
-    type="button"
-    class="option-card"
-    onclick="selectShape(this, 'Je ne sais pas encore')"
-  >
-    <span class="option-icon">?</span>
-    <span class="option-name">Je ne sais pas encore</span>
+    Stiletto
   </button>
 
 </div>
 
 <script>
-let selectedShape = "";
+  let selectedShape = "";
 
-function selectShape(button, shape) {
+  function selectShape(button, shape) {
+    document
+      .querySelectorAll(".shape-choice")
+      .forEach(function(card) {
+        card.classList.remove("selected");
+      });
 
-  document
-    .querySelectorAll('.options-grid .option-card')
-    .forEach(function(card) {
-      card.classList.remove('selected');
-    });
-
-  button.classList.add('selected');
-
-  selectedShape = shape;
-}
+    button.classList.add("selected");
+    selectedShape = shape;
+  }
 </script>
 
 
