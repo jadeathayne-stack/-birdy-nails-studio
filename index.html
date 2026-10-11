@@ -2768,7 +2768,25 @@ function goToSummary(
       </strong>
 
     </div>
+${
 
+      selectedShape
+
+      ? `
+
+      <div class="summary-line">
+
+        <span>Forme des ongles</span>
+
+        <strong>${selectedShape}</strong>
+
+      </div>
+
+      `
+
+      : ""
+
+    }
 
     ${
       removal
