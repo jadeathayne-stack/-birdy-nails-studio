@@ -1136,314 +1136,179 @@ le niveau de Nail Art adapté. ✨
 
 
 
+<!-- ================================
+     NAIL ART BIRDYY
+================================ -->
 <h3 class="option-title">
-🎨 Ton Nail Art
+  🎨 Ton Nail Art
 </h3>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="french"
-onchange="calculate()"
->
-
-French
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="outline"
-onchange="calculate()"
->
-
-French avec contour / outline
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="baby"
-onchange="calculate()"
->
-
-Baby-boomer
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="babycolor"
-onchange="calculate()"
->
-
-Baby-color
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="aura"
-onchange="calculate()"
->
-
-Aura
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="marble"
-onchange="calculate()"
->
-
-Marbré
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="animal"
-onchange="calculate()"
->
-
-Effet tortue / léopard / animal
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="dots"
-onchange="calculate()"
->
-
-Pois
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="catEye"
-onchange="calculate()"
->
-
-Cat eyes simple
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="stars"
-onchange="calculate()"
->
-
-Étoiles
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="heart"
-onchange="calculate()"
->
-
-Cœurs
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="3dLine"
-onchange="calculate()"
->
-
-Lignes 3D
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="3dFlower"
-onchange="calculate()"
->
-
-Fleur 3D
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="catCombo"
-onchange="calculate()"
->
-
-Cat eyes + autre Nail Art
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="strass"
-onchange="calculate()"
->
-
-Strass
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="chrome"
-onchange="calculate()"
->
-
-Finition chrome / miroir
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="shell"
-onchange="calculate()"
->
-
-Coquillage
-
-</label>
-
-
-
-<label class="option">
-
-<input
-type="checkbox"
-value="relief"
-onchange="calculate()"
->
-
-Décoration très travaillée en relief
-
-</label>
-
-
-
-<h3 class="option-title">
-💅 Combien de doigts ?
-</h3>
-
-
-<div class="choice-grid">
-
-
-<button
-class="choice"
-onclick="setFingers(2,this)"
->
-1 doigt<br>par main
-</button>
-
-
-<button
-class="choice"
-onclick="setFingers(4,this)"
->
-2 doigts<br>par main
-</button>
-
-
-<button
-class="choice"
-onclick="setFingers(6,this)"
->
-Plus de 2<br>par main
-</button>
-
-
-<button
-class="choice"
-onclick="setFingers(10,this)"
->
-Les 10<br>ongles
-</button>
-
-
-</div>
-
-
 <p class="small-note">
-
-Les petites décorations simples sur
-1 ou 2 doigts par main restent en
-pose simple.
-
+  Choisis les décorations qui te plaisent.
+  Le tarif est calculé automatiquement selon
+  la complexité de ta création.
 </p>
+<style>
+  .nail-art-category {
+    margin-bottom: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(141, 79, 85, 0.14);
+    border-radius: 17px;
+    background: var(--white);
+  }
+  .nail-art-category summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 16px 14px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .nail-art-category summary::-webkit-details-marker {
+    display: none;
+  }
+  .nail-art-category summary::after {
+    content: "+";
+    color: var(--rose);
+    font-size: 18px;
+  }
+  .nail-art-category[open] summary::after {
+    content: "−";
+  }
+  .nail-art-category summary strong {
+    flex-shrink: 0;
+    color: var(--rose);
+  }
+  .nail-art-options {
+    padding: 0 12px 12px;
+  }
+  .nail-art-options .option {
+    margin-bottom: 7px;
+  }
+  .nail-art-options p {
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+</style>
+<details class="nail-art-category">
+  <summary>
+    <span>✨ Niveau 1 — Petites décorations</span>
+    <strong>+10 €</strong>
+  </summary>
+  <div class="nail-art-options">
+    <label class="option">
+      <input type="checkbox" value="french" onchange="calculate()">
+      French
+    </label>
+    <label class="option">
+      <input type="checkbox" value="outline" onchange="calculate()">
+      French avec contour / outline
+    </label>
+    <label class="option">
+      <input type="checkbox" value="baby" onchange="calculate()">
+      Baby-boomer
+    </label>
+    <label class="option">
+      <input type="checkbox" value="babycolor" onchange="calculate()">
+      Baby-color
+    </label>
+    <label class="option">
+      <input type="checkbox" value="aura" onchange="calculate()">
+      Aura
+    </label>
+    <label class="option">
+      <input type="checkbox" value="marble" onchange="calculate()">
+      Effet marbré
+    </label>
+    <label class="option">
+      <input type="checkbox" value="animal" onchange="calculate()">
+      Effet tortue / léopard
+    </label>
+    <label class="option">
+      <input type="checkbox" value="dots" onchange="calculate()">
+      Pois et points
+    </label>
+    <label class="option">
+      <input type="checkbox" value="catEye" onchange="calculate()">
+      Cat eye simple
+    </label>
+    <label class="option">
+      <input type="checkbox" value="stars" onchange="calculate()">
+      Étoiles
+    </label>
+    <label class="option">
+      <input type="checkbox" value="heart" onchange="calculate()">
+      Cœurs
+    </label>
+  </div>
+</details>
+<details class="nail-art-category">
+  <summary>
+    <span>💎 Niveau 2 — Décorations travaillées</span>
+    <strong>+13 €</strong>
+  </summary>
+  <div class="nail-art-options">
+    <label class="option">
+      <input type="checkbox" value="3dLine" onchange="calculate()">
+      Lignes en 3D
+    </label>
+    <label class="option">
+      <input type="checkbox" value="3dFlower" onchange="calculate()">
+      Fleurs en 3D
+    </label>
+    <label class="option">
+      <input type="checkbox" value="catCombo" onchange="calculate()">
+      Cat eye combiné à un autre Nail Art
+    </label>
+    <label class="option">
+      <input type="checkbox" value="chrome" onchange="calculate()">
+      Finition chrome / miroir
+    </label>
+  </div>
+</details>
+<details class="nail-art-category">
+  <summary>
+    <span>🎨 Niveau 3 — Plusieurs techniques</span>
+    <strong>+17 €</strong>
+  </summary>
+  <div class="nail-art-options">
+    <label class="option">
+      <input type="checkbox" value="shell" onchange="calculate()">
+      Effet coquillage
+    </label>
+    <label class="option">
+      <input type="checkbox" value="relief" onchange="calculate()">
+      Décorations travaillées en relief
+    </label>
+    <label class="option">
+      <input type="checkbox" value="strass" onchange="calculate()">
+      Compositions avec strass
+    </label>
+    <label class="option">
+      <input type="checkbox" value="mixmatch" onchange="calculate()">
+      Mix & match de plusieurs techniques
+    </label>
+  </div>
+</details>
+<details class="nail-art-category">
+  <summary>
+    <span>👑 Niveau 4 — Création exceptionnelle</span>
+    <strong>Sur devis</strong>
+  </summary>
+  <div class="nail-art-options">
+    <p>
+      Créations 3D sculptées, personnages et projets
+      très complexes nécessitant une étude personnalisée.
+    </p>
+    <label class="option">
+      <input type="checkbox" value="exceptional" onchange="calculate()">
+      Je souhaite une création exceptionnelle
+    </label>
+  </div>
+</details>
 
 
 
@@ -1778,8 +1643,7 @@ As-tu une ancienne pose à déposer ?
 <p>
 
 La dépose avant une nouvelle pose
-est facturée seulement
-<strong>+0 €</strong>.
+est offerte!
 
 </p>
 
@@ -2199,503 +2063,96 @@ function setDetail(
 
 
 function calculate() {
-
-
-  if (
-    selectedService !== "pose"
-  ) {
-
-    return;
-
-  }
-
-
-  const checked = [
-
-    ...
-
+  if (selectedService !== "pose") return;
+  const checked = Array.from(
     document.querySelectorAll(
       '#customize input[type="checkbox"]:checked'
     )
-
-  ]
-
-  .map(input => input.value);
-
-
-
-  /*
-    ÉLÉMENTS NIVEAU 1
-  */
-
-
-  const simpleElements = [
-
-    "french",
-
-    "outline",
-
-    "baby",
-
-    "babycolor",
-
-    "aura",
-
-    "marble",
-
-    "animal",
-
-    "dots",
-
-    "catEye",
-
-    "stars",
-
-    "heart"
-
+  ).map(input => input.value);
+  const level1 = [
+    "french", "outline", "baby", "babycolor", "aura",
+    "marble", "animal", "dots", "catEye", "stars", "heart"
   ];
-
-
-
-  const onlySimple =
-
-    checked.length > 0 &&
-
-    checked.every(item =>
-
-      simpleElements.includes(item)
-
-    );
-
-
-
-  /*
-    3D
-  */
-
-
-  const has3D =
-
-    checked.includes("3dLine") ||
-
-    checked.includes("3dFlower");
-
-
-
-  /*
-    NIVEAU 4
-    Création 3D très travaillée.
-  */
-
-
-  const complex3D =
-
-    has3D &&
-
-    detail === "complex";
-
-
-  const complexRelief =
-
-    checked.includes("relief") &&
-
-    detail === "complex";
-
-
-  if (
-    complex3D ||
-    complexRelief
-  ) {
-
-
+  const level2 = [
+    "3dLine", "3dFlower", "catCombo", "chrome"
+  ];
+  const level3 = [
+    "shell", "relief", "strass", "mixmatch"
+  ];
+  // Le niveau 4 nécessite toujours un devis.
+  if (checked.includes("exceptional")) {
     currentLevel = 4;
-
-
     updateQuoteDuration();
-
-
     showSection("quote");
-
-
     return;
-
   }
-
-
-
-  /*
-    NIVEAU 2
-  */
-
-
+  const hasLevel1 = checked.some(item => level1.includes(item));
+  const hasLevel2 = checked.some(item => level2.includes(item));
+  const hasLevel3 = checked.some(item => level3.includes(item));
   let level = 0;
-
-
-  if (
-
-    has3D ||
-
-    checked.includes("catCombo")
-
-  ) {
-
-    level = 2;
-
-  }
-
-
-
-  /*
-    NIVEAU 3
-  */
-
-
-  if (
-
-    checked.includes("shell") ||
-
-    checked.includes("relief") ||
-
-    checked.length >= 5 ||
-
-    (
-      has3D &&
-      checked.length >= 3
-    )
-
-  ) {
-
+  if (hasLevel3 || (hasLevel1 && hasLevel2)) {
     level = 3;
-
-  }
-
-
-
-  /*
-    PETITES DÉCOS SIMPLES
-
-    1 doigt par main
-    OU
-    2 doigts par main
-
-    = POSE SIMPLE
-  */
-
-
-  if (
-
-    onlySimple &&
-
-    fingers > 0 &&
-
-    fingers <= 4
-
-  ) {
-
-    level = 0;
-
-  }
-
-
-
-  /*
-    PLUS DE 2 DOIGTS PAR MAIN
-
-    = NIVEAU 1
-  */
-
-
-  if (
-
-    level === 0 &&
-
-    onlySimple &&
-
-    fingers >= 6
-
-  ) {
-
+  } else if (hasLevel2) {
+    level = 2;
+  } else if (hasLevel1) {
     level = 1;
-
   }
-
-
-
-  /*
-    ACCUMULATION DE DÉCOS
-  */
-
-
-  if (
-
-    level === 0 &&
-
-    checked.length >= 2 &&
-
-    fingers >= 6
-
-  ) {
-
-    level = 1;
-
-  }
-
-
-
-  /*
-    TRÈS TRAVAILLÉ
-
-    sans atteindre le niveau 4
-  */
-
-
-  if (
-
-    detail === "complex" &&
-
-    checked.length >= 3
-
-  ) {
-
-    level = Math.max(
-      level,
-      3
-    );
-
-  }
-
-
   currentLevel = level;
-
-
-
-  /*
-    PRIX
-  */
-
-
-  let nailArtPrice = 0;
-
-
-  if (level === 1) {
-
-    nailArtPrice = 10;
-
-  }
-
-
-  if (level === 2) {
-
-    nailArtPrice = 13;
-
-  }
-
-
-  if (level === 3) {
-
-    nailArtPrice = 17;
-
-  }
-
-
-
-  /*
-    TOTAL
-  */
-
-
-  const total =
-
-    40 +
-
-    
-
-    nailArtPrice;
-
-
-
-  /*
-    DURÉE
-  */
-
-
+  const nailArtPrice = {
+    0: 0,
+    1: 10,
+    2: 13,
+    3: 17
+  }[level];
+  const total = 40 + nailArtPrice;
   let duration = "1h55";
-
-
   if (level === 2) {
-
-    duration = removal
-      ? "2h45"
-      : "2h15";
-
+    duration = removal ? "2h45" : "2h15";
   }
-
-
   if (level === 3) {
-
-    duration = removal
-      ? "3h15"
-      : "2h45";
-
+    duration = removal ? "3h15" : "2h45";
   }
-
-
-
-  /*
-    TEXTE
-  */
-
-
-  const levelText =
-
-    level === 0
-
-      ? "Pose simple"
-
-      : "Nail Art niveau " + level;
-
-
-
-  const priceText =
-
-    level === 0
-
-      ? "Inclus"
-
-      : "+" + nailArtPrice + " €";
-
-
-
-  /*
-    AFFICHAGE
-  */
-
-
-  document
-    .getElementById("result")
-    .innerHTML = `
-
+  const levelText = level === 0
+    ? "Pose simple"
+    : "Nail Art niveau " + level;
+  const priceText = level === 0
+    ? "Inclus"
+    : "+" + nailArtPrice + " €";
+  document.getElementById("result").innerHTML = `
     <div class="summary">
-
-
-      <h3>
-        Ta création ✨
-      </h3>
-
-
+      <h3>Ta création ✨</h3>
       <div class="summary-line">
-
-        <span>
-          Prestation
-        </span>
-
-        <strong>
-          Pose américaine
-        </strong>
-
+        <span>Prestation</span>
+        <strong>Pose américaine</strong>
       </div>
-
-
-      ${
-        removal
-
-        ?
-
-        `
-
+      ${removal ? `
         <div class="summary-line">
-
-          <span>
-            Dépose avant nouvelle pose
-          </span>
-
-          <strong>
-            +5 €
-          </strong>
-
+          <span>Dépose avant nouvelle pose</span>
+          <strong>Offerte</strong>
         </div>
-
-        `
-
-        :
-
-        ""
-
-      }
-
-
+      ` : ""}
       <div class="summary-line">
-
-        <span>
-          Style
-        </span>
-
-        <strong>
-          ${levelText}
-        </strong>
-
+        <span>Style</span>
+        <strong>${levelText}</strong>
       </div>
-
-
       <div class="summary-line">
-
-        <span>
-          Nail Art
-        </span>
-
-        <strong>
-          ${priceText}
-        </strong>
-
+        <span>Nail Art</span>
+        <strong>${priceText}</strong>
       </div>
-
-
       <div class="summary-line">
-
-        <span>
-          Durée estimée
-        </span>
-
-        <strong>
-          ${duration}
-        </strong>
-
+        <span>Durée estimée</span>
+        <strong>${duration}</strong>
       </div>
-
-
       <div class="summary-total">
-
-        <span>
-          Total
-        </span>
-
-        <strong>
-          ${total} €
-        </strong>
-
+        <span>Total</span>
+        <strong>${total} €</strong>
       </div>
-
-
-      <button
-        class="cta"
-        onclick="
-          goToSummary(
-            ${level},
-            ${total},
-            '${duration}'
-          )
-        "
-      >
-
+      <button class="cta"
+        onclick="goToSummary(${level}, ${total}, '${duration}')">
         Continuer →
-
       </button>
-
-
     </div>
-
-    `;
-
+  `;
 }
 
 
