@@ -1263,10 +1263,7 @@ le niveau de Nail Art adapté. ✨
       <input type="checkbox" value="catCombo" onchange="calculate()">
       Cat eye combiné à un autre Nail Art
     </label>
-    <label class="option">
-      <input type="checkbox" value="chrome" onchange="calculate()">
-      Finition chrome / miroir
-    </label>
+   
   </div>
 </details>
 <details class="nail-art-category">
@@ -1310,7 +1307,23 @@ le niveau de Nail Art adapté. ✨
   </div>
 </details>
 
+<details class="nail-art-category">
+  <summary>
+    <span>✨ Finitions</span>
+    <strong>Inclus</strong>
+  </summary>
 
+  <div class="nail-art-options">
+    <label class="option">
+      <input
+        type="checkbox"
+        value="chrome"
+        onchange="calculate()"
+      >
+      Finition chrome / miroir
+    </label>
+  </div>
+</details>
 
 <!-- ================================
      FORME DES ONGLES
@@ -2069,32 +2082,40 @@ function calculate() {
       '#customize input[type="checkbox"]:checked'
     )
   ).map(input => input.value);
+  // Le chrome est une finition incluse, pas un Nail Art payant.
+  const effects = checked.filter(item => item !== "chrome");
   const level1 = [
     "french", "outline", "baby", "babycolor", "aura",
     "marble", "animal", "dots", "catEye", "stars", "heart"
   ];
   const level2 = [
-    "3dLine", "3dFlower", "catCombo", "chrome"
+    "3dLine", "3dFlower", "catCombo"
   ];
   const level3 = [
     "shell", "relief", "strass", "mixmatch"
   ];
-  // Le niveau 4 nécessite toujours un devis.
-  if (checked.includes("exceptional")) {
+  // Niveau 4 : projet exceptionnel sur devis.
+  if (effects.includes("exceptional")) {
     currentLevel = 4;
     updateQuoteDuration();
     showSection("quote");
     return;
   }
-  const hasLevel1 = checked.some(item => level1.includes(item));
-  const hasLevel2 = checked.some(item => level2.includes(item));
-  const hasLevel3 = checked.some(item => level3.includes(item));
+  const countLevel1 = effects.filter(
+    item => level1.includes(item)
+  ).length;
+  const hasLevel2 = effects.some(
+    item => level2.includes(item)
+  );
+  const hasLevel3 = effects.some(
+    item => level3.includes(item)
+  );
   let level = 0;
-  if (hasLevel3 || (hasLevel1 && hasLevel2)) {
+  if (hasLevel3 || (hasLevel2 && countLevel1 > 0)) {
     level = 3;
-  } else if (hasLevel2) {
+  } else if (hasLevel2 || countLevel1 >= 2) {
     level = 2;
-  } else if (hasLevel1) {
+  } else if (countLevel1 === 1) {
     level = 1;
   }
   currentLevel = level;
@@ -2154,7 +2175,6 @@ function calculate() {
     </div>
   `;
 }
-
 
 
 /* =================================
